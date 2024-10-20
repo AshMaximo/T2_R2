@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3</title>
+  </head>
+  <body>
+    <!--Utilizando el programa anterior haz que al llegar a 0 se cargue la página de google, para ello puedes utilizar el objeto location.-->
+    <script>
+      let countdown = 60; // Inicializa el contador en 60 segundos
+      let intervalId = setInterval(() => {
+        document.write(`Tiempo restante: ${countdown} segundos </br>`);
+        countdown--;
+        //cuando llega a 0, detiene el intervalo y redirige a Google
+        if (countdown < 0) {
+          clearInterval(intervalId);
+          console.log("¡Se acabó el tiempo! Te vas a Google...");
+          window.location.href = "https://www.google.com";
+        }
+      }, 1000); //ejecuta el código cada 1 segundo
+      function mostrarReloj() {
+        let ahora = new Date();
+        let horas = ahora.getHours().toString().padStart(2, "0");
+        let minutos = ahora.getMinutes().toString().padStart(2, "0");
+        let segundos = ahora.getSeconds().toString().padStart(2, "0");
+
+        document.write(`Hora actual: ${horas}:${minutos}:${segundos}</br>`);
+      }
+      setInterval(mostrarReloj, 1000);
+    </script>
+  </body>
+</html>
